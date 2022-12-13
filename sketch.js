@@ -30,12 +30,16 @@ function draw() {
   background(0)
   for (let i = 0; i < points.length; i++) {
     const point = points[i]
-    point.render(qt, lineDist)
+    point.renderLines(qt, lineDist)
     point.update(qt)
     qt.remove(point)
     qt.insert(point)
   }
   qt.join()
+  for (let i = 0; i < points.length; i++) {
+    const point = points[i]
+    point.renderPoint()
+  }
 
   textSize(10);
   fill(255);
